@@ -1,20 +1,29 @@
-in_number = int(input("Enter the number: "))
-#Prime number check
-if in_number > 1:
-    for i in range(2, in_number):
-        if in_number % i == 0:
-            print("Number is not simple")
-            break
-    else:
-        print("Number is simple")
+number = input("Enter number: ")
+if number == '':
+    N = 0
+    AMOUNT = 0
+    N_MAX = 0
+    N_MIN = 0
+    MEAN = 0
 else:
-    print("Number is not simple")
-#prime numbers up to in_number
-numbers = 2
-while numbers <= in_number:
-    for o in range(2, numbers):
-        if numbers % o == 0:
+    N = 1
+    AMOUNT = int(number)
+    N_MAX = int(number)
+    N_MIN = int(number)
+    while True:
+        number = input("Enter number: ")
+        if number == '':
             break
-    else:
-        print(numbers, end=' ')
-    numbers += 1
+        N += 1
+        AMOUNT += int(number)
+        if N_MAX < int(number):
+            N_MAX = int(number)
+        if N_MIN > int(number):
+            N_MIN = int(number)
+    MEAN = AMOUNT/N
+print()
+print("N =", N)
+print("AMOUNT =", AMOUNT)
+print("MAX = ", N_MAX, "MIN = ", N_MIN)
+print("MEAN = ", MEAN)
+
