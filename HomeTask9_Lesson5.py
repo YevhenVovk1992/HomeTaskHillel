@@ -1,6 +1,6 @@
 import random
 
-#generate an array of length N from elements from 0 to N
+#generate an array of length user_number from elements from 0 to user_number
 user_number = int(input("Please, input a number: "))
 array = [random.randrange(0, user_number+1) for i in range(user_number)]
 #input second number
@@ -15,12 +15,12 @@ for i, el in enumerate(array):
         l_neighbor = None
         r_neighbor = array[i + 1]
         print(l_neighbor, r_neighbor)
-    # if N is last
+    # if user_number_2 is last
     elif i == len(array) - 1:
         l_neighbor = array[i - 1]
         r_neighbor = None
         print(l_neighbor, r_neighbor)
-    # if N is inside an array
+    # if user_number_2 is inside an array
     else:
         l_neighbor = array[i - 1]
         r_neighbor = array[i + 1]
