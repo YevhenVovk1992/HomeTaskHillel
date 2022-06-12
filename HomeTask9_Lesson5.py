@@ -1,28 +1,30 @@
 import random
 
 #generate an array of length N from elements from 0 to N
-N = int(input("Please, input a number: "))
-ARRAY = []
-for i in range(N):
-    ARRAY.append(random.randrange(0, N+1))
-
-N2 = int(input("Please, input second number: "))
-if N2 not in ARRAY:
-    print("This number is not in the list!")
-else:
-    for i, el in enumerate(ARRAY):
-        #if N is the first
-        if i == 0 and el == N2:
-            L_NEIGHBOR = None
-            R_NEIGHBOR = ARRAY[i + 1]
-            print(L_NEIGHBOR, R_NEIGHBOR)
-        #if N is last
-        elif i != 0 and i != len(ARRAY) - 1 and el == N2:
-            L_NEIGHBOR = ARRAY[i - 1]
-            R_NEIGHBOR = ARRAY[i + 1]
-            print(L_NEIGHBOR, R_NEIGHBOR)
-        #if N is inside an array
-        elif i == len(ARRAY) - 1 and el == N2:
-            L_NEIGHBOR = ARRAY[i - 1]
-            R_NEIGHBOR = None
-            print(L_NEIGHBOR, R_NEIGHBOR)
+user_number = int(input("Please, input a number: "))
+array = [random.randrange(0, user_number+1) for i in range(user_number)]
+#input second number
+user_number_2 = int(input("Please, input second number: "))
+is_found = True
+for i, el in enumerate(array):
+    # user_number is in array?
+    if el != user_number_2:
+        continue
+    # if user_number is the first
+    elif i == 0 :
+        l_neighbor = None
+        r_neighbor = array[i + 1]
+        print(l_neighbor, r_neighbor)
+    # if N is last
+    elif i == len(array) - 1:
+        l_neighbor = array[i - 1]
+        r_neighbor = None
+        print(l_neighbor, r_neighbor)
+    # if N is inside an array
+    else:
+        l_neighbor = array[i - 1]
+        r_neighbor = array[i + 1]
+        print(l_neighbor, r_neighbor)
+    is_found = False
+if is_found:
+    print("Not found")
